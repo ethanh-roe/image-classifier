@@ -25,3 +25,7 @@ def test_predict_returns_three_labels():
 def test_predict_rejects_non_image():
     response = client.post("/predict", files={"file": ("notes.txt", b"hello", "text/plain")})
     assert response.status_code == 400
+
+def test_predict_rejects_empty_file_name():
+    response = client.post("/predict", files={"file": ("")})
+    assert response.status_code == 400
