@@ -44,6 +44,8 @@ def health():
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
+    if not file.filename:
+        raise HTTPException(status_code=400, detail="File must have a name")
     try:
         image = Image.open(io.BytesIO(await file.read())).convert("RGB")
     except Exception:
