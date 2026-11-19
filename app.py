@@ -6,7 +6,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from PIL import Image
 from torchvision.models import MobileNet_V3_Small_Weights, mobilenet_v3_small
 
-app = FastAPI(title="Image classifier")
+app = FastAPI(title="Image Classifier : v1")
 
 # Load a small pretrained model once at startup (weights download on first run)
 weights = MobileNet_V3_Small_Weights.DEFAULT
